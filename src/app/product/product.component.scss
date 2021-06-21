@@ -1,0 +1,22 @@
+.productContainer {
+  display: flex;
+  justify-content: center;
+  flex-flow: wrap;
+  gap: 25px;
+    &__product {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100px;
+      height: 150px;
+      padding: 2rem;
+      border-radius: 5px;
+      box-shadow: 0 0 20px rgba(100, 100, 100, 0.5);
+      &:hover{
+        box-shadow: 0 0 20px rgba(100, 100, 100, 1);
+      }
+    }
+    &__image {
+      width: 100%;
+    }
+}

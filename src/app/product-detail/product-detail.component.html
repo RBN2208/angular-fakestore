@@ -1,5 +1,18 @@
-<div *ngIf="product">
-  <h2>{{product.title | uppercase}}</h2>
-  <button (click)="goBack()">Back</button>
+<div *ngIf="product" class="productDetail">
+  <div class="productDetail__productContainer">
+      <div class="productDetail__productInfoWrapper">
+
+        <img class="productDetail__image" src="{{product.image}}">
+          <div class="productDetail__productInfo">
+            <div>
+              <h2>{{product.title | uppercase}}</h2>
+              <p class="productDetail__category">Artikelnummer: {{product.id}} | {{product.category}}</p>
+            </div>
+            <p class="productDetail__description">{{product.description}}</p>
+            <h3 class="productDetail__productPrice">Preis: {{product.price}} €</h3>
+          </div>
+      </div>
+  </div>
+  <button class="productDetail__backButton" (click)="goBack()">Back</button>
 </div>
 

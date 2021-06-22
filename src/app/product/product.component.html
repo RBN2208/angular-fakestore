@@ -1,3 +1,9 @@
+<div class="navigation__navbar">
+  <span (click)="resetProducts()">All</span>
+  <span (click)="filterProducts('men\'s clothing' && 'women\'s clothing')">Clothings</span>
+  <span (click)="filterProducts('jewelery')">Jewelery</span>
+  <span (click)="filterProducts('electronics')">Tech</span>
+</div>
 <section class="productContainer">
     <a  *ngFor="let product of products" routerLink="/product/{{product.id}}">
       <div class="productContainer__product">

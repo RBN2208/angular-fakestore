@@ -1,27 +1,15 @@
 .navigation{
   display: flex;
+  justify-content: space-between;
   align-items: center;
   gap: 100px;
   font-family: "American Typewriter";
   background-color: aquamarine;
   height: 10vh;
-  padding-left: 100px;
+  padding: 0 100px;
+  margin-bottom: 2rem;
   h1,p{
     margin: 0;
   }
-  &__navbar{
-    display: flex;
-    gap: 100px;
-    align-self: center;
-    span{
-      width: 150px;
-      text-align: center;
-      border: 1px solid black;
-      padding: 5px 10px;
-      &:hover{
-        background-color: darkslategray;
-        color: white;
-      }
-    }
-  }
+
 }

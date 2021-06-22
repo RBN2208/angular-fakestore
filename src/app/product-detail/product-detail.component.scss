@@ -40,8 +40,13 @@
   }
   &__backButton{
     position: absolute;
-    top: 2rem;
+    top: 0;
     left: 2rem;
+    appearance: none;
+    padding: 10px 30px;
+    background-color: dimgray;
+    color: white;
+    border: none;
   }
   &__image{
     width: 200px;

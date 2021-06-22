@@ -3,6 +3,7 @@
   justify-content: center;
   flex-flow: wrap;
   gap: 25px;
+  padding: 0 50px;
     &__product {
       display: flex;
       justify-content: center;
@@ -19,4 +20,26 @@
     &__image {
       width: 100%;
     }
+}
+
+.navigation__navbar{
+  display: flex;
+  justify-content: space-between;
+  align-self: center;
+  margin: 0 auto;
+  width: 80%;
+  padding: 0 50px;
+  span{
+    display: block;
+    width: 150px;
+    text-align: center;
+    border: 1px solid black;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-bottom: 50px;
+    &:hover{
+      background-color: darkslategray;
+      color: white;
+    }
+  }
 }

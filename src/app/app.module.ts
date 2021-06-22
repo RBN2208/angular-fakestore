@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { ProductComponent } from './product/product.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { NavigationComponent } from './navigation/navigation.component';
+import { ButtonComponent } from './button/button.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { NavigationComponent } from './navigation/navigation.component';
     ProductComponent,
     ProductDetailComponent,
     NavigationComponent,
+    ButtonComponent,
   ],
   imports: [
     BrowserModule,

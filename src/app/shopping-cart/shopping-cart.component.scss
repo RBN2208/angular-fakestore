@@ -1,0 +1,33 @@
+.cartWrapper{
+  display: flex;
+  flex-direction: column;
+  height: 75vh;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(100,100,100,1);
+  font-family: sans-serif;
+  h3{
+    flex: 1 0 auto;
+  }
+  &__shopWrapper{
+    display: flex;
+    flex-flow: wrap;
+    padding: 1rem;
+    background-color: mediumaquamarine;
+    flex: 100 0 auto;
+  }
+  &__listSection{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    flex: 2 0 auto;
+    background-color: greenyellow;
+  }
+  &__formSection{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    flex: 1 0 auto;
+    background-color: aquamarine;
+  }
+}

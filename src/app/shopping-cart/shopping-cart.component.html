@@ -1,0 +1,13 @@
+<section class="cartWrapper">
+  <h3>Shopping Cart</h3>
+  <div class="cartWrapper__shopWrapper">
+    <div class="cartWrapper__listSection">
+        <p  *ngFor="let product of usedProducts">
+          {{product.title}} - {{product.price}}€
+        </p>
+    </div>
+    <div class="cartWrapper__formSection">
+      <app-formular></app-formular>
+    </div>
+  </div>
+</section>

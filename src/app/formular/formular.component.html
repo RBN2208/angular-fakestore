@@ -1,25 +1,26 @@
-<form action="" class="shoppingForm" (submit)="handleSubmit($event)">
+<form action="" class="shoppingForm" (ngSubmit)="handleSubmit()" [formGroup]="profileForm">
   <h2>Please add your data</h2>
   <div class="shoppingForm__inputs">
-    <input type="text" placeholder="Vorname" name="firstname">
-    <input type="text" placeholder="Nachname" name="lastname">
-    <input type="text" placeholder="Adresse" name="adress">
-    <input type="text" placeholder="PLZ" name="zipcode">
-    <input type="text" placeholder="Ort" name="location">
+    <input type="text" placeholder="Firstname" formControlName="firstName">
+    <input type="text" placeholder="Lastname" formControlName="lastName">
+    <input type="text" placeholder="Adress" formControlName="address">
+    <input type="text" placeholder="Zipcode" formControlName="zipcode">
+    <input type="text" placeholder="Location" formControlName="location">
   </div>
-  <div class="shoppingForm__paymentMethods">
+  <div class="shoppingForm__paymentMethods" formGroupName="payment">
     <h3>Payment:</h3>
     <label for="payment-paypal">
-      <input type="radio" id="payment-paypal" name="payment" aria-selected="true">
+      <input type="radio" id="payment-paypal"  formControlName="payment" value="paypal">
       Paypal</label
     >
     <label for="payment-klarna">
-      <input type="radio" id="payment-klarna" name="payment">
+      <input type="radio" id="payment-klarna" formControlName="payment" value="klarna">
       Klarna</label>
 
     <label for="payment-bank">
-      <input type="radio" id="payment-bank" name="payment">
+      <input type="radio" id="payment-bank" formControlName="payment" value="bank">
       Lastschrift</label>
   </div>
-  <input type="submit" value="Kaufen" class="shoppingForm__submitbutton">
+  <input type="submit" value="Kaufen" class="shoppingForm__submitbutton" [disabled]="!profileForm.valid">
 </form>
+<p>{{profileForm.status}}</p>

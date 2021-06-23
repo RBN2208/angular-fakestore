@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from "@angular/common/http";
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductComponent } from './product/product.component';
@@ -10,6 +9,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { FormularComponent } from './formular/formular.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { SubmitformComponent } from './submitform/submitform.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +19,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     NavigationComponent,
     ShoppingCartComponent,
     FormularComponent,
+    SubmitformComponent,
   ],
   imports: [
     BrowserModule,

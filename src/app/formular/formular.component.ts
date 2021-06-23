@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ProductService} from "../product.service";
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-formular',
@@ -8,15 +8,25 @@ import {ProductService} from "../product.service";
 })
 export class FormularComponent implements OnInit {
 
-  constructor(private productService: ProductService) { }
+  profileForm = new FormGroup({
+    firstName: new FormControl('', Validators.required),
+    lastName: new FormControl('', Validators.required),
+    address: new FormControl('',Validators.required),
+    zipcode: new FormControl('',Validators.required),
+    location: new FormControl('',Validators.required),
+    payment: new FormGroup({
+      payment: new FormControl(false),
+    })
+  });
+
+
+  constructor() { }
 
   ngOnInit(): void {
   }
 
-  handleSubmit(event: Event){
-    event.preventDefault()
-    const formElements = event.target
-    console.log(formElements)
+  handleSubmit(){
+    console.log(this.profileForm.value)
     // window.alert("Thanks for buying")
     // localStorage.clear()
     // window.location.href = "/"

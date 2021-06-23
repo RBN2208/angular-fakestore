@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ProductService} from "../product.service";
 
 @Component({
   selector: 'app-formular',
@@ -7,13 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormularComponent implements OnInit {
 
-  constructor() { }
+  constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
   }
 
   handleSubmit(event: Event){
     event.preventDefault()
-    window.alert("Thanks for buying")
+    const formElements = event.target
+    console.log(formElements)
+    // window.alert("Thanks for buying")
+    // localStorage.clear()
+    // window.location.href = "/"
   }
 }

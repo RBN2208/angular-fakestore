@@ -1,11 +1,11 @@
-<form action="" class="shoppingForm">
+<form action="" class="shoppingForm" (submit)="handleSubmit($event)">
   <h2>Please add your data</h2>
   <div class="shoppingForm__inputs">
-    <input type="text" placeholder="Vorname" required>
-    <input type="text" placeholder="Nachname">
-    <input type="text" placeholder="Adresse">
-    <input type="text" placeholder="PLZ">
-    <input type="text" placeholder="Ort">
+    <input type="text" placeholder="Vorname" name="firstname">
+    <input type="text" placeholder="Nachname" name="lastname">
+    <input type="text" placeholder="Adresse" name="adress">
+    <input type="text" placeholder="PLZ" name="zipcode">
+    <input type="text" placeholder="Ort" name="location">
   </div>
   <div class="shoppingForm__paymentMethods">
     <h3>Payment:</h3>
@@ -21,5 +21,5 @@
       <input type="radio" id="payment-bank" name="payment">
       Lastschrift</label>
   </div>
-  <input type="submit" value="Kaufen" class="shoppingForm__submitbutton" (click)="handleSubmit($event)">
+  <input type="submit" value="Kaufen" class="shoppingForm__submitbutton">
 </form>

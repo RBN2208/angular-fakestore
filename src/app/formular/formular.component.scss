@@ -1,28 +1,33 @@
-.shoppingForm{
+.shoppingForm {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 1rem;
   height: 100%;
-  input{
+  border: 5px solid aquamarine;
+  input {
     padding: 5px 10px;
     border: none;
   }
-  &__inputs{
+
+  &__inputs {
     display: flex;
     flex-direction: column;
     gap: 1rem;
   }
-  &__paymentMethods{
+
+  &__paymentMethods {
     display: flex;
     flex-direction: column;
     gap: 5px;
   }
-  &__submitbutton{
+
+  &__submitbutton {
     cursor: pointer;
     background-color: darkslategray;
     color: white;
-    &:hover{
+
+    &:hover {
       background-color: cadetblue;
     }
   }

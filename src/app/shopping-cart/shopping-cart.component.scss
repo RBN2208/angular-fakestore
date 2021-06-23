@@ -1,55 +1,63 @@
-.cartWrapper{
+.cartWrapper {
   display: flex;
   flex-direction: column;
   height: 100%;
   padding: 15px;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(100,100,100,1);
+  box-shadow: 0 0 10px rgba(100, 100, 100, 1);
   font-family: sans-serif;
-  h3{
+
+  h3 {
     flex: 1 0 auto;
   }
-  &__shopWrapper{
+
+  &__shopWrapper {
     display: flex;
     flex-flow: wrap;
     padding: 1rem;
-    background-color: mediumaquamarine;
     flex: 100 0 auto;
   }
-  &__listSection{
+
+  &__listSection {
     display: grid;
     grid-auto-columns: 100%;
     grid-template-rows: 10% 450px 10%;
     grid-gap: 10px;
     padding: 1rem 2rem 1rem;
     flex: 2 0 auto;
-    background-color: greenyellow;
-    p{
+    box-shadow: 0 0 15px rgba(100, 100, 100, 0.7);
+    p {
       justify-self: end;
-
     }
   }
-  &__listEntry{
+
+  &__listEntry {
     display: flex;
     justify-content: space-between;
     padding: 10px 15px;
-    &:nth-child(odd){
-      background-color: gainsboro;
+
+    &:nth-child(odd) {
+      background-color: rgba(200,200,200,0.7);
     }
   }
-  &__listBox{
+
+  &__listBox {
     height: 100%;
     overflow: scroll;
-    background-color: azure;
+    background-color: rgba(200,200,200,0.3);
   }
-  &__formSection{
+
+  &__formSection {
     display: flex;
     flex-direction: column;
     padding: 1rem;
     flex: 1 0 auto;
     background-color: aquamarine;
+    box-shadow: 0 0 15px rgba(100, 100, 100, 0.7);
+
   }
-  &__buyFormular{
+
+  &__buyFormular {
     height: 100%;
   }
 }

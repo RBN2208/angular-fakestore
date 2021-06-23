@@ -7,7 +7,8 @@ import {Product} from "../product";
   styleUrls: ['./shopping-cart.component.scss']
 })
 export class ShoppingCartComponent implements OnInit {
-  usedProducts: Product[] = this.loadFromLocal('used');
+  usedProducts: Product[] = this.loadFromLocal('used') || [];
+  SUM = this.add(this.usedProducts)
   constructor() {
   }
 
@@ -17,10 +18,14 @@ export class ShoppingCartComponent implements OnInit {
   loadFromLocal(key:string) {
     const jsonString = localStorage.getItem(key)
     try {
-      console.log(JSON.parse(<string>jsonString))
       return JSON.parse(<string>jsonString)
     } catch (error) {
       console.error(error)
     }
+  }
+
+  add(products:Product[]){
+    let values = products.map(({price})=> Number(price));
+    return values.reduce((a , b) => a + b, 0)
   }
 }

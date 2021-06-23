@@ -10,6 +10,7 @@ import {ProductService} from "../product.service";
   styleUrls: ['./product-detail.component.scss']
 })
 export class ProductDetailComponent implements OnInit {
+
   @Input() product?: Product;
   constructor(
     private route: ActivatedRoute,
@@ -29,5 +30,7 @@ export class ProductDetailComponent implements OnInit {
     this.location.back()
   }
   addToCart(product:any){
+    this.productService.usedProducts.push(product)
+    localStorage.setItem('used', JSON.stringify(this.productService.usedProducts))
   }
 }

@@ -2,7 +2,6 @@ import {Injectable} from '@angular/core';
 import {Product} from "./product"
 import {Observable, of} from 'rxjs';
 import {HttpClient} from "@angular/common/http";
-import {PRODUCTS} from "./product-data";
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +9,8 @@ import {PRODUCTS} from "./product-data";
 
 export class ProductService {
   products: Product[] = [];
+  usedProducts: Product[] = []
+
   constructor(private http: HttpClient) {
   }
 

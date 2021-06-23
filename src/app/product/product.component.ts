@@ -12,11 +12,6 @@ export class ProductComponent implements OnInit {
   products: Product[] = []
   constructor(private productService: ProductService) {
   }
-// nur zum schnellen testen
-  addToCart(product:any){
-    localStorage.setItem('used', JSON.stringify(product))
-  }
-// nur zum schnellen testen
 
   async ngOnInit() {
     await this.resetProducts()

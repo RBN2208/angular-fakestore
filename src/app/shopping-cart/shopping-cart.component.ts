@@ -17,8 +17,8 @@ export class ShoppingCartComponent implements OnInit {
   loadFromLocal(key:string) {
     const jsonString = localStorage.getItem(key)
     try {
-      return JSON.parse(<string>jsonString)
       console.log(JSON.parse(<string>jsonString))
+      return JSON.parse(<string>jsonString)
     } catch (error) {
       console.error(error)
     }

@@ -5,9 +5,12 @@
   <span (click)="filterProducts('electronics')">Tech</span>
 </div>
 <section class="productContainer">
-    <a  *ngFor="let product of products" routerLink="/product/{{product.id}}">
+    <a  *ngFor="let product of products">
       <div class="productContainer__product">
-        <img class="productContainer__image" src="{{product.image}}" alt="">
+        <img class="productContainer__image" src="{{product.image}}" alt="" routerLink="/product/{{product.id}}">
       </div>
+      <!-- Nur zum schnellen test -->
+      <button (click)="addToCart(product)">Add</button>
+      <!-- Nur zum schnellen test -->
     </a>
 </section>

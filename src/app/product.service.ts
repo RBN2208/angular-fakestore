@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {Product} from "./product"
 import {Observable, of} from 'rxjs';
 import {HttpClient} from "@angular/common/http";
+import {PRODUCTS} from "./product-data";
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,6 @@ import {HttpClient} from "@angular/common/http";
 
 export class ProductService {
   products: Product[] = [];
-
   constructor(private http: HttpClient) {
   }
 
@@ -34,9 +34,4 @@ export class ProductService {
     this.products = products;
   }
 
-  filterProducts(products: Product[], filter: string): any {
-    const filteredProducts = this.products.filter(product => product.category === filter)
-    this.setProducts((filteredProducts))
-    console.log(filteredProducts)
-  }
 }

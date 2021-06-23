@@ -1,7 +1,7 @@
 .cartWrapper{
   display: flex;
   flex-direction: column;
-  height: 75vh;
+  height: 100%;
   padding: 15px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(100,100,100,1);
@@ -17,11 +17,30 @@
     flex: 100 0 auto;
   }
   &__listSection{
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
+    display: grid;
+    grid-auto-columns: 100%;
+    grid-template-rows: 10% 450px 10%;
+    grid-gap: 10px;
+    padding: 1rem 2rem 1rem;
     flex: 2 0 auto;
     background-color: greenyellow;
+    p{
+      justify-self: end;
+
+    }
+  }
+  &__listEntry{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px;
+    &:nth-child(odd){
+      background-color: gainsboro;
+    }
+  }
+  &__listBox{
+    height: 100%;
+    overflow: scroll;
+    background-color: azure;
   }
   &__formSection{
     display: flex;
@@ -29,5 +48,8 @@
     padding: 1rem;
     flex: 1 0 auto;
     background-color: aquamarine;
+  }
+  &__buyFormular{
+    height: 100%;
   }
 }

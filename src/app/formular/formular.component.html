@@ -1,1 +1,25 @@
-<p>formular works!</p>
+<form action="" class="shoppingForm">
+  <h2>Please add your data</h2>
+  <div class="shoppingForm__inputs">
+    <input type="text" placeholder="Vorname" required>
+    <input type="text" placeholder="Nachname">
+    <input type="text" placeholder="Adresse">
+    <input type="text" placeholder="PLZ">
+    <input type="text" placeholder="Ort">
+  </div>
+  <div class="shoppingForm__paymentMethods">
+    <h3>Payment:</h3>
+    <label for="payment-paypal">
+      <input type="radio" id="payment-paypal" name="payment" aria-selected="true">
+      Paypal</label
+    >
+    <label for="payment-klarna">
+      <input type="radio" id="payment-klarna" name="payment">
+      Klarna</label>
+
+    <label for="payment-bank">
+      <input type="radio" id="payment-bank" name="payment">
+      Lastschrift</label>
+  </div>
+  <input type="submit" value="Kaufen" class="shoppingForm__submitbutton" (click)="handleSubmit($event)">
+</form>

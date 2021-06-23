@@ -10,7 +10,7 @@
             </div>
             <p class="productDetail__description">{{product.description}}</p>
             <h3 class="productDetail__productPrice">Preis: {{product.price}} €</h3>
-            <app-button></app-button>
+            <button class="productDetail__buttonComponent" (click)="addToCart(product)">Add to cart</button>
           </div>
       </div>
   </div>

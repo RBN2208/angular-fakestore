@@ -2,12 +2,21 @@
   <h3>Shopping Cart</h3>
   <div class="cartWrapper__shopWrapper">
     <div class="cartWrapper__listSection">
-        <p  *ngFor="let product of usedProducts">
-          {{product.title}} - {{product.price}}€
-        </p>
+      <h2>Your shopping cart</h2>
+        <div class="cartWrapper__listBox">
+          <div *ngFor="let product of usedProducts" class="cartWrapper__listEntry">
+            <span class="cartWrapper__productName">
+              {{product.title}}
+            </span>
+            <span class="cartWrapper__productPrice">
+              {{product.price}}€
+            </span>
+          </div>
+        </div>
+      <p>Gesamtsumme: SUMME</p>
     </div>
     <div class="cartWrapper__formSection">
-      <app-formular></app-formular>
+      <app-formular class="cartWrapper__buyFormular"></app-formular>
     </div>
   </div>
 </section>

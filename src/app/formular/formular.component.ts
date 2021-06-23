@@ -12,4 +12,8 @@ export class FormularComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  handleSubmit(event: Event){
+    event.preventDefault()
+    window.alert("Thanks for buying")
+  }
 }

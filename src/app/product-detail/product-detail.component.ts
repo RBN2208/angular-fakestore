@@ -28,4 +28,6 @@ export class ProductDetailComponent implements OnInit {
   goBack(): void {
     this.location.back()
   }
+  addToCart(product:any){
+  }
 }

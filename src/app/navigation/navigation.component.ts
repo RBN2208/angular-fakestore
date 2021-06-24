@@ -13,6 +13,4 @@ export class NavigationComponent implements OnInit {
   ngOnInit(): void {
   }
   shopItems = this.productService.usedProducts
-
-
 }

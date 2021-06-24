@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Product} from "./product"
-import {Observable, of} from 'rxjs';
+import {Observable, of, Subject} from 'rxjs';
 import {HttpClient} from "@angular/common/http";
 
 @Injectable({
@@ -9,8 +9,8 @@ import {HttpClient} from "@angular/common/http";
 
 export class ProductService {
   products: Product[] = [];
-  usedProducts: Product[] = this.loadFromLocal('used')
-
+  usedProducts: Product[] = this.loadFromLocal('used') || []
+  public productsUpdate$: Subject<any> = new Subject()
   constructor(private http: HttpClient) {
   }
 
@@ -50,6 +50,8 @@ export class ProductService {
     return values.reduce((a , b) => a + b, 0)
   }
   // public add():void{}
-  // public remove():void{}
+  public remove(newArray:Product[]):void{
+    localStorage.setItem('used', JSON.stringify(newArray))
+  }
 
 }

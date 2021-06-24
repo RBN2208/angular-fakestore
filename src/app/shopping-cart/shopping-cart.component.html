@@ -11,9 +11,10 @@
             <span class="cartWrapper__productPrice">
               {{product.price}}€
             </span>
+            <span class="cartWrapper__removeItemButton" (click)="removeFromCart(product.id)">x</span>
           </div>
         </div>
-      <p>Gesamtsumme: {{SUM}} €</p>
+      <p>Overall value: {{SUM}} €</p>
     </div>
     <div class="cartWrapper__formSection">
       <app-formular class="cartWrapper__buyFormular"></app-formular>

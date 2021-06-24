@@ -60,4 +60,12 @@
   &__buyFormular {
     height: 100%;
   }
+
+  &__removeItemButton{
+    background: crimson;
+    padding: 1px 5px;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+  }
 }

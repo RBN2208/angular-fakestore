@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Product} from "../product";
+import {ProductService} from "../product.service";
 
 @Component({
   selector: 'app-shopping-cart',
@@ -7,25 +8,11 @@ import {Product} from "../product";
   styleUrls: ['./shopping-cart.component.scss']
 })
 export class ShoppingCartComponent implements OnInit {
-  usedProducts: Product[] = this.loadFromLocal('used') || [];
-  SUM = this.add(this.usedProducts)
-  constructor() {
+  usedProducts: Product[] = this.productService.usedProducts || []
+  SUM = this.productService.addition(this.productService.usedProducts)
+  constructor(private productService: ProductService) {
   }
 
   ngOnInit(): void {
-  }
-
-  loadFromLocal(key:string) {
-    const jsonString = localStorage.getItem(key)
-    try {
-      return JSON.parse(<string>jsonString)
-    } catch (error) {
-      console.error(error)
-    }
-  }
-
-  add(products:Product[]){
-    let values = products.map(({price})=> Number(price));
-    return values.reduce((a , b) => a + b, 0)
   }
 }

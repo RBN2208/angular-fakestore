@@ -10,5 +10,34 @@
   h1,p{
     margin: 0;
   }
-
+  &__buttonWrapper{
+    display: flex;
+    gap: 1rem;
+    position: relative;
+  }
+  &__button{
+    appearance: none;
+    border: none;
+    padding: 5px 10px;
+    background-color: azure;
+    color: black;
+    box-shadow: 0 0 10px rgba(100,100,100,0.8);
+    border-radius: 5px;
+  }
+  &__shoppingCartBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: crimson;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+  }
+  &__shoppingCartAmount{
+    color: white;
+  }
+}
+.addedAmount{
+  background-color: white;
+  color: black;
 }

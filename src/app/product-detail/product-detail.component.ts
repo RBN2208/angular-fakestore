@@ -29,8 +29,17 @@ export class ProductDetailComponent implements OnInit {
   goBack(): void {
     this.location.back()
   }
+
   addToCart(product:any){
+    this.addClassOnClick()
     this.productService.usedProducts.push(product)
     localStorage.setItem('used', JSON.stringify(this.productService.usedProducts))
+  }
+  addClassOnClick(){
+    const element = document.getElementById('amountBox')
+    element?.classList?.add('addedAmount')
+    setTimeout(() => {
+      element?.classList?.remove('addedAmount')
+    },250)
   }
 }

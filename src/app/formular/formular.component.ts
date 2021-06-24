@@ -28,7 +28,7 @@ export class FormularComponent implements OnInit {
   handleSubmit(){
     console.log(this.profileForm.value)
     // window.alert("Thanks for buying")
-    // localStorage.clear()
+    localStorage.clear()
     // window.location.href = "/"
   }
 }

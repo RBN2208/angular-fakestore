@@ -9,7 +9,7 @@ import {HttpClient} from "@angular/common/http";
 
 export class ProductService {
   products: Product[] = [];
-  usedProducts: Product[] = []
+  usedProducts: Product[] = this.loadFromLocal('used')
 
   constructor(private http: HttpClient) {
   }
@@ -21,7 +21,8 @@ export class ProductService {
     return new Promise(resolve => this.http.get<any>('https://fakestoreapi.com/products').subscribe(
       response => {
         this.setProducts(response);
-        resolve(response)
+        resolve(response);
+        console.log("response from fetch:",response)
       }
     ))
   }
@@ -35,6 +36,19 @@ export class ProductService {
     this.products = products;
   }
 
+  loadFromLocal(key:string) {
+    const jsonString = localStorage.getItem(key)
+    try {
+      return JSON.parse(<string>jsonString)
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  addition(products:Product[]){
+    let values = products.map(({price})=> Number(price));
+    return values.reduce((a , b) => a + b, 0)
+  }
   // public add():void{}
   // public remove():void{}
 

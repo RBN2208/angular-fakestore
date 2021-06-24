@@ -3,7 +3,11 @@
     <h1>The big FakeStore</h1>
     <p>Everything you need</p>
   </div>
-  <button routerLink="/shopping-cart">Go to shopping cart</button>
-  <button routerLink="/">Go to products</button>
-
+  <div class="navigation__buttonWrapper">
+    <button class="navigation__button" routerLink="/">PRODUCTS</button>
+    <button class="navigation__button" routerLink="/shopping-cart">CART</button>
+    <div class="navigation__shoppingCartBox" id="amountBox" [class.addedAmount]="">
+      <span class="navigation__shoppingCartAmount" id="amountNumber">{{shopItems.length}}</span>
+    </div>
+  </div>
 </nav>

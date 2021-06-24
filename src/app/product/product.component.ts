@@ -25,6 +25,6 @@ export class ProductComponent implements OnInit {
     await this.resetProducts()
     const filteredProducts = this.products.filter(product => product.category === filter)
     this.products = filteredProducts;
-    console.log(filteredProducts)
+    console.log("filtered products :", filteredProducts)
   }
 }

@@ -9,7 +9,6 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { FormularComponent } from './formular/formular.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import { SubmitformComponent } from './submitform/submitform.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +18,6 @@ import { SubmitformComponent } from './submitform/submitform.component';
     NavigationComponent,
     ShoppingCartComponent,
     FormularComponent,
-    SubmitformComponent,
   ],
   imports: [
     BrowserModule,

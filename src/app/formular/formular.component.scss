@@ -4,8 +4,8 @@
   justify-content: space-between;
   gap: 1rem;
   height: 100%;
-  border: 5px solid aquamarine;
-  input {
+  border: none!important;
+  &__inputs {
     padding: 5px 10px;
     border: none;
   }
@@ -20,15 +20,25 @@
     display: flex;
     flex-direction: column;
     gap: 5px;
+    border: none!important;
   }
 
   &__submitbutton {
     cursor: pointer;
     background-color: darkslategray;
     color: white;
-
+    border: none;
+    padding: 5px;
     &:hover {
       background-color: cadetblue;
     }
   }
 }
+
+.ng-valid{
+  border-left: 5px solid green;
+}
+.ng-invalid{
+  border-left: 5px solid crimson;
+}
+

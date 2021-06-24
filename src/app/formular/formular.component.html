@@ -1,11 +1,11 @@
 <form action="" class="shoppingForm" (ngSubmit)="handleSubmit()" [formGroup]="profileForm">
   <h2>Please add your data</h2>
   <div class="shoppingForm__inputs">
-    <input type="text" placeholder="Firstname" formControlName="firstName">
-    <input type="text" placeholder="Lastname" formControlName="lastName">
-    <input type="text" placeholder="Adress" formControlName="address">
-    <input type="text" placeholder="Zipcode" formControlName="zipcode">
-    <input type="text" placeholder="Location" formControlName="location">
+    <input type="text" class="shoppingForm__inputs" placeholder="Firstname" formControlName="firstName">
+    <input type="text" class="shoppingForm__inputs" placeholder="Lastname" formControlName="lastName">
+    <input type="text" class="shoppingForm__inputs" placeholder="Adress" formControlName="address">
+    <input type="text" class="shoppingForm__inputs" placeholder="Zipcode" formControlName="zipcode">
+    <input type="text" class="shoppingForm__inputs" placeholder="Location" formControlName="location">
   </div>
   <div class="shoppingForm__paymentMethods" formGroupName="payment">
     <h3>Payment:</h3>
@@ -23,4 +23,3 @@
   </div>
   <input type="submit" value="Kaufen" class="shoppingForm__submitbutton" [disabled]="!profileForm.valid">
 </form>
-<p>{{profileForm.status}}</p>

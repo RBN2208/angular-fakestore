@@ -1,8 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute} from "@angular/router";
-import { Location} from "@angular/common";
-import {Product} from "../product";
-import {ProductService} from "../product.service";
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+import { Product } from '../product';
+import { ProductService } from '../product.service';
+import { AddProduct } from '../store/shop.actions';
+import { Store } from '@ngxs/store';
 
 @Component({
   selector: 'app-product-detail',
@@ -13,33 +15,34 @@ export class ProductDetailComponent implements OnInit {
 
   @Input() product?: Product;
   constructor(
-    private route: ActivatedRoute,
-    private productService: ProductService,
-    private location: Location
+    private _route: ActivatedRoute,
+    private _productService: ProductService,
+    private _location: Location,
+    private _store: Store
   ) { }
 
-  ngOnInit(): void {
-    this.getProduct()
+  public ngOnInit(): void {
+    this.getProduct();
   }
-  getProduct(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.productService.getProduct(id)
-      .subscribe(product => this.product = product)
+  public getProduct(): void {
+    const id = Number(this._route.snapshot.paramMap.get('id'));
+    this._productService.getProduct(id)
+      .subscribe(product => this.product = product);
   }
-  goBack(): void {
-    this.location.back()
+  public goBack(): void {
+    this._location.back();
   }
 
-  addToCart(product:any){
-    this.addClassOnClick()
-    this.productService.usedProducts.push(product)
-    localStorage.setItem('used', JSON.stringify(this.productService.usedProducts))
+  public addToCart(product: any) {
+    this._store.dispatch(new AddProduct(product));
+    this.addClassOnClick();
   }
-  addClassOnClick(){
-    const element = document.getElementById('amountBox')
-    element?.classList?.add('addedAmount')
+
+  public addClassOnClick() {
+    const element = document.getElementById('amountBox');
+    element?.classList?.add('addedAmount');
     setTimeout(() => {
-      element?.classList?.remove('addedAmount')
-    },250)
+      element?.classList?.remove('addedAmount');
+    },250);
   }
 }

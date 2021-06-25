@@ -9,6 +9,10 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { FormularComponent } from './formular/formular.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {ShoppingCartState, ShopStateModel} from "./store/shop.state";
+import {NgxsModule} from "@ngxs/store";
+import {NgxsReduxDevtoolsPluginModule} from "@ngxs/devtools-plugin";
+import {NgxsLoggerPluginModule} from "@ngxs/logger-plugin";
 
 @NgModule({
   declarations: [
@@ -24,7 +28,12 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgxsModule.forRoot([
+      ShoppingCartState
+    ]),
+    NgxsReduxDevtoolsPluginModule.forRoot(),
+    NgxsLoggerPluginModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -13,17 +13,17 @@ export class ProductComponent implements OnInit {
   constructor(private productService: ProductService) {
   }
 
-  async ngOnInit() {
+  public async ngOnInit(): Promise<void> {
     await this.resetProducts();
   }
 
-  async resetProducts(){
+  public async resetProducts(): Promise<void> {
     this.products = await this.productService.getProductList();
   }
 
-  async filterProducts(filter: string){
+  public async filterProducts(filter: string): Promise<void> {
     await this.resetProducts();
-    const filteredProducts = this.products.filter(product => product.category === filter);
+    const filteredProducts: Product[] = this.products.filter(product => product.category === filter);
     this.products = filteredProducts;
     console.log('filtered products :', filteredProducts);
   }

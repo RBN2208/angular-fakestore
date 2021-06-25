@@ -14,7 +14,7 @@
             <span class="cartWrapper__removeItemButton" (click)="removeFromCart(product.title)">x</span>
           </div>
         </div>
-      <p>Overall value: {{SUMME |async}} €</p>
+      <p>Overall value: {{OverallValue | async}} €</p>
     </div>
     <div class="cartWrapper__formSection">
       <app-formular class="cartWrapper__buyFormular"></app-formular>

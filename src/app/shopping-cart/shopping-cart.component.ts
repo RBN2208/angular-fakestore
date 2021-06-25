@@ -15,15 +15,15 @@ import { RemoveProduct } from '../store/shop.actions';
 export class ShoppingCartComponent implements OnInit {
   public usedProducts$: Observable<Product[]> = this._store.select(ShoppingCartState.getProducts);
 
-  public SUMME = this._store.select(ShoppingCartState.addition);
+  public OverallValue: Observable<number> = this._store.select(ShoppingCartState.addition);
 
   constructor(private productService: ProductService, private _store: Store) {
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
   }
 
-  public removeFromCart(title: string){
+  public removeFromCart(title: string): void{
     this._store.dispatch(new RemoveProduct(title));
   }
 

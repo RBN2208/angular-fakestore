@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Store } from '@ngxs/store';
 import { ShoppingCartState } from '../store/shop.state';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-navigation',
@@ -9,10 +10,10 @@ import { ShoppingCartState } from '../store/shop.state';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NavigationComponent implements OnInit {
-  public shopItems$ = this._store.select(ShoppingCartState.amountOfItemsInCart);
+  public shopItems$: Observable<number> = this._store.select(ShoppingCartState.amountOfItemsInCart);
 
   constructor( private _store: Store) { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
   }
 }

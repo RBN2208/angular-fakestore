@@ -1,10 +1,11 @@
 import { State, Action, StateContext, Selector } from '@ngxs/store';
 import { Product } from './product.model';
 import { AddProduct, RemoveProduct } from './shop.actions';
+import {ProductService} from "../product.service";
 
 export class ShopStateModel{
 
-  products: Product[] = [];
+  public products: Product[] = [];
 
 }
 
@@ -17,32 +18,33 @@ export class ShopStateModel{
 
 export class ShoppingCartState{
   @Selector()
-  static getProducts(state: ShopStateModel){
+  public static getProducts(state: ShopStateModel): Product[]{
     return state.products;
   }
 
   @Selector()
-  static addition(state: ShopStateModel){
-    const values = state.products.map(({price})=> price);
-    return values.reduce((a , b) => a + b, 0);
+  public static addition(state: ShopStateModel): number {
+    const values: number[] = state.products.map(({price}): number => price);
+    return values.reduce((a , b): number => a + b, 0);
   }
 
   @Selector()
-  static amountOfItemsInCart(state: ShopStateModel){
+  public static amountOfItemsInCart(state: ShopStateModel): number {
     return state.products.length;
   }
 
   @Action(AddProduct)
-  public add({getState, patchState}: StateContext<ShopStateModel>, {payload}: AddProduct){
-    const state = getState();
+  public add({getState, patchState}: StateContext<ShopStateModel>, {payload}: AddProduct): void {
+    const state: ShopStateModel = getState();
     patchState({
       products: [...state.products, payload]
     });
   }
+
   @Action(RemoveProduct)
-  public remove({getState, patchState}: StateContext<ShopStateModel>, { payload}: RemoveProduct){
+  public remove({getState, patchState}: StateContext<ShopStateModel>, { payload }: RemoveProduct): void {
     patchState({
-      products: getState().products.filter(a => a.title !== payload)
+      products: getState().products.filter(product => product.title !== payload)
     });
   }
 }

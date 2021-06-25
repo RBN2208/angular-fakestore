@@ -8,7 +8,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class FormularComponent implements OnInit {
 
-  profileForm = new FormGroup({
+  public profileForm: any = new FormGroup({
     firstName: new FormControl('', Validators.required),
     lastName: new FormControl('', Validators.required),
     address: new FormControl('',Validators.required),
@@ -22,10 +22,10 @@ export class FormularComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
   }
 
-  public handleSubmit(){
+  public handleSubmit(): void{
     console.log(this.profileForm.value);
     localStorage.clear();
   }

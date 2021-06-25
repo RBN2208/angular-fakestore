@@ -13,7 +13,8 @@ import { Store } from '@ngxs/store';
 })
 export class ProductDetailComponent implements OnInit {
 
-  @Input() product?: Product;
+  @Input() public product?: Product;
+
   constructor(
     private _route: ActivatedRoute,
     private _productService: ProductService,
@@ -24,24 +25,26 @@ export class ProductDetailComponent implements OnInit {
   public ngOnInit(): void {
     this.getProduct();
   }
+
   public getProduct(): void {
-    const id = Number(this._route.snapshot.paramMap.get('id'));
+    const id: number = Number(this._route.snapshot.paramMap.get('id'));
     this._productService.getProduct(id)
       .subscribe(product => this.product = product);
   }
+
   public goBack(): void {
     this._location.back();
   }
 
-  public addToCart(product: any) {
+  public addToCart(product: any): void {
     this._store.dispatch(new AddProduct(product));
     this.addClassOnClick();
   }
 
-  public addClassOnClick() {
-    const element = document.getElementById('amountBox');
+  public addClassOnClick(): void {
+    const element: HTMLElement | null = document.getElementById('amountBox');
     element?.classList?.add('addedAmount');
-    setTimeout(() => {
+    setTimeout((): void => {
       element?.classList?.remove('addedAmount');
     },250);
   }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Product} from "../product";
-import {ProductService} from "../product.service";
+import { Product } from '../product';
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-product',
@@ -9,22 +9,22 @@ import {ProductService} from "../product.service";
 })
 export class ProductComponent implements OnInit {
 
-  products: Product[] = []
+  public products: Product[] = [];
   constructor(private productService: ProductService) {
   }
 
   async ngOnInit() {
-    await this.resetProducts()
+    await this.resetProducts();
   }
 
   async resetProducts(){
-    this.products = await this.productService.getProductList()
+    this.products = await this.productService.getProductList();
   }
 
   async filterProducts(filter: string){
-    await this.resetProducts()
-    const filteredProducts = this.products.filter(product => product.category === filter)
+    await this.resetProducts();
+    const filteredProducts = this.products.filter(product => product.category === filter);
     this.products = filteredProducts;
-    console.log("filtered products :", filteredProducts)
+    console.log('filtered products :', filteredProducts);
   }
 }

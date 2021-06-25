@@ -27,6 +27,11 @@ export class ShoppingCartState{
     return values.reduce((a , b) => a + b, 0);
   }
 
+  @Selector()
+  static amountOfItemsInCart(state: ShopStateModel){
+    return state.products.length;
+  }
+
   @Action(AddProduct)
   public add({getState, patchState}: StateContext<ShopStateModel>, {payload}: AddProduct){
     const state = getState();

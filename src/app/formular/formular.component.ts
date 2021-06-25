@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-formular',
@@ -25,10 +25,8 @@ export class FormularComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  handleSubmit(){
-    console.log(this.profileForm.value)
-    // window.alert("Thanks for buying")
-    localStorage.clear()
-    // window.location.href = "/"
+  public handleSubmit(){
+    console.log(this.profileForm.value);
+    localStorage.clear();
   }
 }

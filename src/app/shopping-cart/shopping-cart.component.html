@@ -4,14 +4,14 @@
     <div class="cartWrapper__listSection">
       <h2>Your shopping cart</h2>
         <div class="cartWrapper__listBox">
-          <div *ngFor="let product of usedProducts" class="cartWrapper__listEntry">
+          <div *ngFor="let product of usedProducts$ | async" class="cartWrapper__listEntry">
             <span class="cartWrapper__productName">
               {{product.title}}
             </span>
             <span class="cartWrapper__productPrice">
               {{product.price}}€
             </span>
-            <span class="cartWrapper__removeItemButton" (click)="removeFromCart(product.id)">x</span>
+            <span class="cartWrapper__removeItemButton" (click)="removeFromCart(product.title)">x</span>
           </div>
         </div>
       <p>Overall value: {{SUM}} €</p>

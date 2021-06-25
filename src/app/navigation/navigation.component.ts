@@ -1,16 +1,16 @@
-import {ChangeDetectionStrategy, Component, OnInit, EventEmitter} from '@angular/core';
-import {ProductService} from "../product.service";
+import { Component } from '@angular/core';
+import { Store } from '@ngxs/store';
+import { ShoppingCartState } from '../store/shop.state';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class NavigationComponent implements OnInit {
-  constructor( private productService: ProductService) { }
+export class NavigationComponent{
+  public shopItems$: Observable<number> = this._store.select(ShoppingCartState.amountOfItemsInCart);
 
-  ngOnInit(): void {
-  }
-  shopItems = this.productService.usedProducts
+  constructor( private _store: Store) { }
+
 }

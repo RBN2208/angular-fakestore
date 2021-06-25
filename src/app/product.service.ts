@@ -45,7 +45,7 @@ export class ProductService {
     }
   }
 
-  addition(products:Product[]){
+  addition(products: Product[]){
     let values = products.map(({price})=> Number(price));
     return values.reduce((a , b) => a + b, 0)
   }

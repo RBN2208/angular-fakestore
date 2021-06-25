@@ -21,6 +21,12 @@ export class ShoppingCartState{
     return state.products;
   }
 
+  @Selector()
+  static addition(state: ShopStateModel){
+    const values = state.products.map(({price})=> price);
+    return values.reduce((a , b) => a + b, 0);
+  }
+
   @Action(AddProduct)
   public add({getState, patchState}: StateContext<ShopStateModel>, {payload}: AddProduct){
     const state = getState();
@@ -29,7 +35,7 @@ export class ShoppingCartState{
     });
   }
   @Action(RemoveProduct)
-  remove({getState, patchState}: StateContext<ShopStateModel>, { payload}: RemoveProduct){
+  public remove({getState, patchState}: StateContext<ShopStateModel>, { payload}: RemoveProduct){
     patchState({
       products: getState().products.filter(a => a.title !== payload)
     });

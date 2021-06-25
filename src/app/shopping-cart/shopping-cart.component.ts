@@ -5,6 +5,7 @@ import { Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { ShoppingCartState } from '../store/shop.state';
 import { RemoveProduct } from '../store/shop.actions';
+// import { ReturnSum } from '../store/shop.actions';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -14,7 +15,7 @@ import { RemoveProduct } from '../store/shop.actions';
 export class ShoppingCartComponent implements OnInit {
   public usedProducts$: Observable<Product[]> = this._store.select(ShoppingCartState.getProducts);
 
-  public SUM = this.productService.addition(this.productService.usedProducts)
+  public SUMME = this._store.select(ShoppingCartState.addition);
 
   constructor(private productService: ProductService, private _store: Store) {
   }
@@ -25,4 +26,5 @@ export class ShoppingCartComponent implements OnInit {
   public removeFromCart(title: string){
     this._store.dispatch(new RemoveProduct(title));
   }
+
 }

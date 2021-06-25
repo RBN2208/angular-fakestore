@@ -1,7 +1,6 @@
 import { State, Action, StateContext, Selector } from '@ngxs/store';
 import { Product } from './product.model';
 import { AddProduct, RemoveProduct } from './shop.actions';
-import {ProductService} from "../product.service";
 
 export class ShopStateModel{
 
@@ -44,7 +43,7 @@ export class ShoppingCartState{
   @Action(RemoveProduct)
   public remove({getState, patchState}: StateContext<ShopStateModel>, { payload }: RemoveProduct): void {
     patchState({
-      products: getState().products.filter(product => product.title !== payload)
+      products: getState().products.filter((product: Product) => product.title !== payload)
     });
   }
 }

@@ -9,11 +9,10 @@ import { HttpClient } from '@angular/common/http';
 
 export class ProductService {
   public products: Product[] = [];
-  // usedProducts: Product[] = this.loadFromLocal('used') || []
   constructor(private http: HttpClient) {
   }
 
-  async getProductList(): Promise<any> {
+  public async getProductList(): Promise<any> {
     if (this.products.length > 0) {
       return Promise.resolve(this.products);
     }
@@ -21,18 +20,14 @@ export class ProductService {
       response => {
         this.setProducts(response);
         resolve(response);
-        console.log('response from fetch:',response);
       }
     ));
   }
 
   public getProduct(id: number): Observable<Product> {
-    const product = this.products.find(product => product.id === id)!;
-    return of(product);
+    const selectedProduct: any = this.products?.find((product: Product) => product.id === id);
+    return of(selectedProduct);
   }
-  // TSLint: Forbidden non null assertion(no-non-null-assertion)
-  // TSLint: Shadowed name: 'product'(no-shadowed-variable
-
 
   public setProducts(products: Product[]): void {
     this.products = products;

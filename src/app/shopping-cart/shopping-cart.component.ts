@@ -15,7 +15,7 @@ import { RemoveProduct } from '../store/shop.actions';
 export class ShoppingCartComponent implements OnInit {
   public usedProducts$: Observable<Product[]> = this._store.select(ShoppingCartState.getProducts);
 
-  public OverallValue: Observable<number> = this._store.select(ShoppingCartState.addition);
+  public overallValue$: Observable<number> = this._store.select(ShoppingCartState.addition);
 
   constructor(private productService: ProductService, private _store: Store) {
   }

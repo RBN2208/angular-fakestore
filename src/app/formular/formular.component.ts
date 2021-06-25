@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -6,7 +6,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   templateUrl: './formular.component.html',
   styleUrls: ['./formular.component.scss']
 })
-export class FormularComponent implements OnInit {
+export class FormularComponent {
 
   public profileForm: any = new FormGroup({
     firstName: new FormControl('', Validators.required),
@@ -22,11 +22,7 @@ export class FormularComponent implements OnInit {
 
   constructor() { }
 
-  public ngOnInit(): void {
-  }
-
   public handleSubmit(): void{
-    console.log(this.profileForm.value);
     localStorage.clear();
   }
 }
